@@ -40,7 +40,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .wrap{max-width:var(--max);margin-inline:auto}
 img{display:block;max-width:100%;height:auto}
-h1,h2,h3,h4{font-family:var(--font-text);font-weight:var(--w-sub);letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--font-text);font-weight:var(--w-sub);letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
 h1,.h2,.nextlink h2{font-family:var(--font-display);font-weight:var(--w-heading);letter-spacing:-.02em;line-height:1.04}
 b,strong{font-weight:var(--w-sub)}
 em,i{font-style:normal}
@@ -63,8 +63,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* hero + page head */
 .hero{padding-block:clamp(48px,8vw,112px) clamp(32px,5vw,64px)}
-.hero h1{font-size:clamp(2.8rem,7.4vw,6.4rem);line-height:.95}
-.hero h1 mark,.pagehead h1 mark{background:var(--sun);color:var(--on-sun);padding:0 .1em;margin-left:-.04em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1{font-size:clamp(2.8rem,7.4vw,6.4rem);line-height:1.04}
+.hero h1 mark,.pagehead h1 mark{background:linear-gradient(var(--sun),var(--sun)) 0 56%/100% 1.04em no-repeat;color:var(--on-sun);padding:0 .1em;margin-left:-.04em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .hero .lede{font-size:clamp(1.1rem,1.7vw,1.4rem);max-width:44ch;margin-top:28px;color:var(--ink-2)}
 .kicker{color:var(--sun);margin-bottom:22px;display:block}
 .meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:52px;border-top:1px solid var(--ink)}
@@ -72,7 +72,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .meta dt{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .meta dd{margin:4px 0 0;font-weight:var(--w-sub)}
 .pagehead{padding-block:clamp(48px,7vw,96px) clamp(28px,4vw,56px);border-bottom:1px solid var(--ink)}
-.pagehead h1{font-size:clamp(2.4rem,5.8vw,4.9rem);line-height:.98}
+.pagehead h1{font-size:clamp(2.4rem,5.8vw,4.9rem);line-height:1.04}
+@media(max-width:520px){.pagehead h1{font-size:clamp(1.6rem,7.7vw,2.4rem)}}
 .pagehead .lede{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--ink-2);max-width:48ch;margin:24px 0 0}
 .pagehead .part{display:flex;gap:14px;align-items:center;color:var(--sun);margin-bottom:22px}
 .pagehead .part b{font-family:var(--font-display);font-weight:var(--w-heading);font-size:2.2rem;letter-spacing:-.02em;line-height:1}
@@ -91,7 +92,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media(max-width:860px){.side,.main{grid-column:1/-1}}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px)}
 .cols>div{min-width:0;border-top:1px solid var(--ink);padding-top:14px}
-.cols h4{font-size:var(--fs-sub);margin-bottom:8px}
+.cols h3{font-size:var(--fs-sub);margin-bottom:8px}
 .cols p{font-size:var(--fs-small);color:var(--ink-2);margin:0}
 .k{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--sun);margin-bottom:8px;display:block}
 .k.o{color:var(--orange)}
@@ -111,14 +112,9 @@ figure{margin:0}
 figcaption{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-top:10px;line-height:1.5}
 figcaption .credit{display:block;color:var(--ink)}
 figure img{width:100%;border:1px solid var(--rule)}
-.slot{aspect-ratio:16/10;border:1.5px dashed var(--rule);display:grid;place-items:center;text-align:center;padding:20px;color:var(--ink-2);
-  background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--rule) 40%,transparent) 14px 15px)}
-.slot span{display:block;font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
-.slot em{font-style:normal;max-width:34ch;display:block;font-size:var(--fs-small)}
-.slot.tall{aspect-ratio:3/4}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,36px)}
 .shots figure{min-width:0}
-.shots h4{font-size:var(--fs-sub);margin:14px 0 4px}
+.shots h3{font-size:var(--fs-sub);margin:14px 0 4px}
 .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,36px)}
 
 /* guideline gallery */
@@ -144,7 +140,7 @@ figure img{width:100%;border:1px solid var(--rule)}
 .scale .band{position:absolute;top:72px;height:14px;background:var(--sun)}
 .scale .dot{position:absolute;top:72px;width:14px;height:14px;border-radius:50%;background:var(--sun);transform:translateX(-50%)}
 .scale .lab{position:absolute;transform:translateX(-50%);text-align:center;font-size:var(--fs-small);line-height:1.2;white-space:nowrap;color:var(--ink-2)}
-.scale .lab b{font-family:var(--font-text);font-weight:var(--w-sub);font-size:1.05rem;display:block;color:var(--ink)}
+.scale .lab b{font-family:var(--font-text);font-weight:var(--w-sub);font-size:var(--fs-body);display:block;color:var(--ink)}
 .scale .lab.up{top:10px}
 @media(max-width:620px){.scale .lab{font-size:var(--fs-caption)}.scale .lab b{font-size:var(--fs-small)}}
 
@@ -152,9 +148,9 @@ figure img{width:100%;border:1px solid var(--rule)}
 .moves{list-style:none;margin:0;padding:0}
 .moves li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:20px;padding:18px 0;border-top:1px solid var(--rule);align-items:baseline}
 .moves li:last-child{border-bottom:1px solid var(--rule)}
-.moves h4{font-size:var(--fs-sub-lg);line-height:1.1}
-.moves li.old h4{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--orange);color:var(--ink-2)}
-.moves li.now h4{color:var(--sun)}
+.moves h3{font-size:var(--fs-sub-lg);line-height:1.1}
+.moves li.old h3{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--orange);color:var(--ink-2)}
+.moves li.now h3{color:var(--sun)}
 .moves p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 @media(max-width:620px){.moves li{grid-template-columns:1fr;gap:6px}}
 
@@ -181,14 +177,14 @@ figure img{width:100%;border:1px solid var(--rule)}
 .decisions li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--rule)}
 .decisions li:last-child{border-bottom:1px solid var(--rule)}
 .decisions .mono{color:var(--sun);padding-top:6px}
-.decisions h4{font-size:var(--fs-sub);line-height:1.1;margin-bottom:6px}
+.decisions h3{font-size:var(--fs-sub);line-height:1.1;margin-bottom:6px}
 .decisions p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 .decisions .why{display:block;margin-top:8px;font-size:var(--fs-small);color:var(--ink)}
 @media(max-width:520px){.decisions li{grid-template-columns:1fr;gap:4px}}
 .findings{list-style:none;margin:0;padding:0;counter-reset:f}
 .findings li{padding:20px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
 .findings li:last-child{border-bottom:1px solid var(--rule)}
-.findings h4{font-size:var(--fs-sub);line-height:1.1}
+.findings h3{font-size:var(--fs-sub);line-height:1.1}
 .findings p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 .findings .did{display:block;margin-top:10px;color:var(--ink);font-size:var(--fs-small)}
 .findings .did::before{content:"Decision: ";font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--sun)}
@@ -206,7 +202,7 @@ figure img{width:100%;border:1px solid var(--rule)}
 .shows li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--sun);transform:translateY(-1px)}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,48px)}
 .two>div{min-width:0}
-.two h4{font-size:var(--fs-sub);margin-bottom:10px}
+.two h3{font-size:var(--fs-sub);margin-bottom:10px}
 .timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--violet)}
 .timeline li{padding:0 0 26px 24px;position:relative}
 .timeline li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--sun)}
@@ -216,26 +212,10 @@ figure img{width:100%;border:1px solid var(--rule)}
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);align-items:start}
 .gal figure{min-width:0}
-.gal .g1,.gal .g2,.gal .g3{grid-column:span 4}
-.gal .g4{grid-column:span 8}.gal .g5{grid-column:span 4}.gal .g6{grid-column:1/-1}
-@media(max-width:860px){.gal .g1,.gal .g2,.gal .g3,.gal .g4,.gal .g5{grid-column:span 6}}
-@media(max-width:520px){.gal .g1,.gal .g2,.gal .g3,.gal .g4,.gal .g5{grid-column:1/-1}}
-
-/* compare */
-.cmp{position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--ink);background:var(--raise);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize}
-.cmp .layer{position:absolute;inset:0;display:grid;place-items:center;padding:24px 9%}
-.cmp .layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border:0}
-.cmp .new{clip-path:inset(0 0 0 var(--pos,50%));background:var(--raise-2);justify-items:end}
-.cmp .old{background:var(--raise);justify-items:start}
-.cmp .tag{position:absolute;top:12px;font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;z-index:3}
-.cmp .tag.l{left:12px;background:var(--orange);color:var(--ground)}
-.cmp .tag.r{right:12px;background:var(--sun);color:var(--on-sun)}
-.cmp .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:var(--sun);transform:translateX(-50%);z-index:2;pointer-events:none}
-.cmp .handle::after{content:"";position:absolute;top:50%;left:50%;width:26px;height:26px;border-radius:50%;background:var(--sun);transform:translate(-50%,-50%);border:3px solid var(--ground)}
-.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:4}
-.cmp .note{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);max-width:30ch;line-height:1.6}
-.cmp .note b{display:block;font-family:var(--font-text);font-weight:var(--w-sub);font-size:var(--fs-sub-lg);letter-spacing:-.01em;text-transform:none;color:var(--ink);margin-bottom:6px}
-.cmp .new .note{text-align:right}
+.gal .g1,.gal .g2,.gal .g3,.gal .g4{grid-column:span 4}
+.gal .g6{grid-column:span 8;align-self:center}
+@media(max-width:860px){.gal .g1,.gal .g2,.gal .g3,.gal .g4{grid-column:span 6}.gal .g6{grid-column:1/-1}}
+@media(max-width:520px){.gal .g1,.gal .g2,.gal .g3,.gal .g4{grid-column:1/-1}}
 
 /* tabs */
 .tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--ink);margin-bottom:28px}
@@ -277,8 +257,8 @@ figure img{width:100%;border:1px solid var(--rule)}
 /* next / prev */
 .nextlink{display:block;text-decoration:none;padding-block:clamp(40px,6vw,80px);border-top:1px solid var(--ink)}
 .nextlink .mono{color:var(--ink-2)}
-.nextlink h2{font-size:clamp(2rem,6vw,4.6rem);line-height:1;margin-top:12px;display:flex;gap:.3em;align-items:baseline;flex-wrap:wrap}
-.nextlink h2 i{font-style:normal;color:var(--sun);transition:transform .2s}
+.nextlink h2{font-size:clamp(2rem,6vw,4.6rem);line-height:1;margin-top:12px}
+.nextlink h2 i{font-style:normal;color:var(--sun);transition:transform .2s;display:inline-block;margin-left:.3em}
 .nextlink:hover h2 i{transform:translateX(8px)}
 .nextlink p{color:var(--ink-2);margin:14px 0 0}
 footer{border-top:1px solid var(--rule);padding-block:28px 48px}
@@ -300,18 +280,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 .thirds .v{top:0;bottom:0;width:1px}.thirds .h{left:0;right:0;height:1px}
 .thirds b{position:absolute;width:12px;height:12px;border:2px solid var(--orange);border-radius:50%;transform:translate(-50%,-50%);background:none}
 
-/* old and new screenshots, work in progress */
-.cmpfig figcaption{margin-top:16px}
-.cmpfig h4{font-size:var(--fs-sub);margin:0 0 12px}
+/* work in progress */
 .wip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
 .wip figure:first-child{grid-column:1/-1}
 .wip img{background:var(--raise)}
 @media(max-width:620px){.wip{grid-template-columns:1fr}}
-.pair2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
-@media(max-width:620px){.pair2{grid-template-columns:1fr}}
 .flowfig img{background:#fff}.flowfig{margin-top:40px}
 .flowfig+.links{margin-top:20px}
-.cmpfig+.cmpfig,.cmpfig+.pair2{margin-top:44px}
 
 /* ---------- motion: circles that pulse, glide navigation, scroll scrub ---------- */
 /* pulse: every circle breathes and sends out a soft ring */
@@ -381,7 +356,7 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
 @media(max-width:620px){.thumbs{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:no-preference){
-  .nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.cmp .handle::after,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
+  .nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
   .shows li:nth-child(even)::before,.timeline li:nth-child(even)::before,.pipe li:nth-child(even)::after,.parts li:nth-child(even) a::after{animation-delay:-.9s}
   .journey .nd,.street .pd{animation:pulsesvg 1.8s ease-out infinite}
 }
@@ -390,73 +365,66 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
   .wd{opacity:1}
 }
 
+/* review fixes */
+@media(max-width:360px){.hero h1{font-size:2.3rem}.pagehead h1{font-size:1.5rem}}
+.band-cloud .pull+p{margin-top:18px}
+
 </style>
 <script>try{var s=JSON.parse(sessionStorage.getItem('mv')||'null');if(s&&Date.now()-s.t<8000){document.documentElement.style.setProperty('--dir',s.dir);document.documentElement.setAttribute('data-from',s.from)}}catch(e){}</script>
-</head><body><header class="nav"><div class="wrap"><a class="me" href="index.html"><i></i><span>Malhar Bapte</span></a><ul><li><a class="l" href="index.html">Home</a></li><li><a class="l" href="brief.html">1 The brief</a></li><li><a class="l" href="listening.html">2 Listening</a></li><li><a class="l" href="brand.html" aria-current="page">3 Brand</a></li><li><a class="l" href="website.html">4 Website</a></li><li><a class="l" href="work.html">5 Work</a></li><li><a class="l" href="reflection.html">6 Reflection</a></li></ul></div></header><section class="pagehead wrap"><div class="part mono"><b>03</b><span>Brand Strategy &amp;&nbsp;Identity</span></div><h1>Developing the <mark>Brand&nbsp;Strategy</mark></h1><p class="lede">Findings became positioning, values, tone and colour, in a guidelines document the directors approved. Every choice has its reasoning logged beside it.</p></section>
+</head><body><header class="nav"><div class="wrap"><a class="me" href="index.html"><i></i><span>Malhar&nbsp;Bapte</span></a><ul><li><a class="l" href="index.html">Home</a></li><li><a class="l" href="brief.html">1 The&nbsp;brief</a></li><li><a class="l" href="listening.html">2&nbsp;Listening</a></li><li><a class="l" href="brand.html" aria-current="page">3&nbsp;Brand</a></li><li><a class="l" href="website.html">4&nbsp;Website</a></li><li><a class="l" href="work.html">5&nbsp;Work</a></li><li><a class="l" href="reflection.html">6&nbsp;Reflection</a></li></ul></div></header><section class="pagehead wrap"><div class="part mono"><b>03</b><span>Brand Strategy &amp;&nbsp;Identity</span></div><h1>Developing the <mark>Brand&nbsp;Strategy</mark></h1><p class="lede">Findings became positioning, values, tone and colour, in a guidelines document the directors approved. Every choice has its reasoning logged beside&nbsp;it.</p></section>
 <main>
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Positioning</span><h2>Defining Brand&nbsp;Positioning</h2><p>Positioned between rugged and premium, on purpose, and as the expert retailer beside a manufacturer.</p></div>
+  <div class="side"><span class="mono">Positioning</span><h2>Defining Brand&nbsp;Positioning</h2><p>Positioned between rugged and premium, on purpose, and as the expert retailer beside a&nbsp;manufacturer.</p></div>
   <div class="main">
     <div class="pages">
-<figure class="w"><img src="img/bgcover.webp" width="1400" height="990" alt="Cover of the Outbound RVs brand guidelines document" loading="lazy"><figcaption>Brand guidelines, cover<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure><img src="img/bg2.webp" width="1400" height="990" alt="Guidelines page: About" loading="lazy"><figcaption>About<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure><img src="img/bg4.webp" width="1400" height="990" alt="Guidelines page: Positioning" loading="lazy"><figcaption>Positioning<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure><img src="img/bg5.webp" width="1400" height="990" alt="Guidelines page: Our Vision" loading="lazy"><figcaption>Vision<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure><img src="img/bg6.webp" width="1400" height="990" alt="Guidelines page: Our Mission" loading="lazy"><figcaption>Mission<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure><img src="img/bg7.webp" width="1400" height="990" alt="Guidelines page: Our Promise" loading="lazy"><figcaption>Promise<span class="credit">Property of Wonderland RV</span></figcaption></figure>
+<figure class="w"><img src="img/bgcover.webp" width="1400" height="990" alt="Cover of the Outbound RVs brand guidelines document" loading="lazy"><figcaption>Brand guidelines, cover<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure><img src="img/bg2.webp" width="1400" height="990" alt="Guidelines page: About" loading="lazy"><figcaption>About<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure><img src="img/bg4.webp" width="1400" height="990" alt="Guidelines page: Positioning" loading="lazy"><figcaption>Positioning<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure><img src="img/bg5.webp" width="1400" height="990" alt="Guidelines page: Our Vision" loading="lazy"><figcaption>Vision<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure><img src="img/bg6.webp" width="1400" height="990" alt="Guidelines page: Our Mission" loading="lazy"><figcaption>Mission<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure><img src="img/bg7.webp" width="1400" height="990" alt="Guidelines page: Our Promise" loading="lazy"><figcaption>Promise<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure>
     </div>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Values and voice</span><h2>Refining Brand Values &amp;&nbsp;Voice</h2><p>The directors’ own four values were good but all about conduct. We approved Guidance, Integrity, Partnership and Expertise on 4 September.</p></div>
+  <div class="side"><span class="mono">Values and&nbsp;voice</span><h2>Refining Brand Values &amp;&nbsp;Voice</h2><p>The directors’ own four values were good but all about conduct. We approved Guidance, Integrity, Partnership and Expertise on 4&nbsp;September.</p></div>
   <div class="main">
     <div class="pages">
-<figure><img src="img/bg10.webp" width="1400" height="990" alt="Guidelines page: Our Values" loading="lazy"><figcaption>Values: Guidance, Integrity, Partnership, Expertise<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure><img src="img/bg11.webp" width="1400" height="990" alt="Guidelines page: Brand Attributes" loading="lazy"><figcaption>Brand attributes<span class="credit">Property of Wonderland RV</span></figcaption></figure><figure class="w"><img src="img/bg12.webp" width="1400" height="990" alt="Guidelines page: Tone of Voice" loading="lazy"><figcaption>Tone of voice<span class="credit">Property of Wonderland RV</span></figcaption></figure>
+<figure><img src="img/bg10.webp" width="1400" height="990" alt="Guidelines page: Our Values" loading="lazy"><figcaption>Values: Guidance, Integrity, Partnership, Expertise<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure><img src="img/bg11.webp" width="1400" height="990" alt="Guidelines page: Brand Attributes" loading="lazy"><figcaption>Brand attributes<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure><figure class="w"><img src="img/bg12.webp" width="1400" height="990" alt="Guidelines page: Tone of Voice" loading="lazy"><figcaption>Tone of voice<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure>
     </div>
     <div class="band-cloud" style="margin-top:44px">
-      <span class="k">Translating Values into&nbsp;Decisions</span>
-      <p class="pull" style="color:#201E1F;max-width:24ch">A value is only real if it can make you turn something down.</p>
-      <p>That is why the fourth value is Expertise, not Craftsmanship. Craftsmanship describes the manufacturer’s work, and Outbound does not build the vans. Expertise describes the thing the dealership owns: knowing them.</p>
+      <span class="k" role="heading" aria-level="3">Translating Values into&nbsp;Decisions</span>
+      <p class="pull" style="color:#201E1F;max-width:24ch">A value is only real if it can make you turn something&nbsp;down.</p>
+      <p>That is why the fourth value is Expertise, not Craftsmanship. Craftsmanship describes the manufacturer’s work, and Outbound does not build the vans. Expertise describes the thing the dealership owns: knowing&nbsp;them.</p>
     </div>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Colour</span><h2>Developing a Functional Colour&nbsp;System</h2><p>The colours do jobs. Primaries carry the page, secondaries add contrast, accents only highlight what matters.</p></div>
+  <div class="side"><span class="mono">Colour</span><h2>Developing a Functional Colour&nbsp;System</h2><p>The colours do jobs. Primaries carry the page, secondaries add contrast, accents only highlight what&nbsp;matters.</p></div>
   <div class="main">
-    <div class="pages"><figure class="w"><img src="img/bg15.webp" width="1400" height="990" alt="Guidelines page: Colour, with primary, secondary and accent swatches" loading="lazy"><figcaption>Colour<span class="credit">Property of Wonderland RV</span></figcaption></figure></div>
+    <div class="pages"><figure class="w"><img src="img/bg15.webp" width="1400" height="990" alt="Guidelines page: Colour, with primary, secondary and accent swatches" loading="lazy"><figcaption>Colour<span class="credit">Property of Wonderland&nbsp;RV</span></figcaption></figure></div>
     <div class="cols" style="margin-top:36px">
-      <div><span class="k">Primary</span><h4>Establishing a Premium Visual&nbsp;Tone</h4><p>Neutral greys read cheap. A warm cast on both the dark and the off-white reads as chosen. Olive’s scarcity does most of the premium work.</p></div>
-      <div><span class="k">Action</span><h4>Improving Colour&nbsp;Accessibility</h4><p>The brand olive carries white text at only 3 to 1. The deeper step reaches 4.7 to 1. One hue, two steps, not a new colour.</p></div>
-      <div><span class="k">Exception</span><h4>Documenting Design&nbsp;Trade-offs</h4><p>White on light rose sits at 2.04 to 1. I chose it after testing alternatives, softened it for anyone who asks for higher contrast, and recorded it so nobody corrects it silently.</p></div>
+      <div><span class="k">Primary</span><h3>Establishing a Premium Visual&nbsp;Tone</h3><p>Neutral greys read cheap. A warm cast on both the dark and the off-white reads as chosen. Olive’s scarcity does most of the premium&nbsp;work.</p></div>
+      <div><span class="k">Action</span><h3>Improving Colour&nbsp;Accessibility</h3><p>The brand olive carries white text at only 3 to 1. The deeper step reaches 4.7 to 1. One hue, two steps, not a new&nbsp;colour.</p></div>
+      <div><span class="k">Exception</span><h3>Documenting Design&nbsp;Trade-offs</h3><p>White on light rose sits at 2.04 to 1. I chose it after testing alternatives, softened it for anyone who asks for higher contrast, and recorded it so nobody corrects it&nbsp;silently.</p></div>
     </div>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Decision log</span><h2>Strategic Design&nbsp;Decisions</h2><p>A dated log, kept as I went. A choice made in week two can still be defended in week ten.</p></div>
+  <div class="side"><span class="mono">Decision&nbsp;log</span><h2>Strategic Design&nbsp;Decisions</h2><p>A dated log, kept as I went. A choice made in week two can still be defended in week&nbsp;ten.</p></div>
   <div class="main">
     <ul class="decisions">
-      <li><span class="mono">29 Jul</span><div><h4>Aligning Design with Business&nbsp;Goals</h4><p>More sales is the business goal, but conversion depends on the sales team.<span class="why">So the lever design owns, and can be measured on, is leads.</span></p></div></li>
-      <li><span class="mono">29 Jul</span><div><h4>Establishing the Visual&nbsp;Direction</h4><p>Reads more luxurious than any colour scheme and lets the landscape photography supply the colour.<span class="why">It was chosen on instinct and later supported independently by the directors’ answers.</span></p></div></li>
-      <li><span class="mono">29 Jul</span><div><h4>Creating Hierarchy Through&nbsp;Space</h4><p>Boxes fragment a page whose job is showing large vans.<span class="why">Whitespace, grid and rules carry the structure instead.</span></p></div></li>
-      <li><span class="mono">16 Aug</span><div><h4>Defining the Role of Accent&nbsp;Colours</h4><p>Blue and rose are the brand accents, used sparingly and never as a surface that competes with the photography.<span class="why">Scarcity is what keeps an accent meaning something.</span></p></div></li>
-      <li><span class="mono">18 Aug</span><div><h4>Designing for Reading &amp;&nbsp;Scanning</h4><p>The hero, the owner quote and the footer stay dark in both modes.<span class="why">They are where a visitor slows down. Inverting everything would flatten the page.</span></p></div></li>
-      <li><span class="mono">1 Sep</span><div><h4>Developing a Cohesive Graphic&nbsp;Language</h4><p>A line as structure, a diamond as waypoint, the logo mark as anchor.<span class="why">Four fixed rules let compositions vary without losing the identity.</span></p></div></li>
-      <li><span class="mono">4 Sep</span><div><h4>Defining Internal Brand&nbsp;Communication</h4><p>It is the sharpest page in the guidelines, but publishing four negatives reads as a defence.<span class="why">Saying we are not price driven makes the reader think about price.</span></p></div></li>
+      <li><span class="mono">29&nbsp;Jul</span><div><h3>Aligning Design with Business&nbsp;Goals</h3><p>More sales is the business goal, but conversion depends on the sales team.<span class="why">So the lever design owns, and can be measured on, is&nbsp;leads.</span></p></div></li>
+      <li><span class="mono">29&nbsp;Jul</span><div><h3>Establishing the Visual&nbsp;Direction</h3><p>Reads more luxurious than any colour scheme and lets the landscape photography supply the colour.<span class="why">It was chosen on instinct and later supported independently by the directors’&nbsp;answers.</span></p></div></li>
+      <li><span class="mono">29&nbsp;Jul</span><div><h3>Creating Hierarchy Through&nbsp;Space</h3><p>Boxes fragment a page whose job is showing large vans.<span class="why">Whitespace, grid and rules carry the structure&nbsp;instead.</span></p></div></li>
+      <li><span class="mono">16&nbsp;Aug</span><div><h3>Defining the Role of Accent&nbsp;Colours</h3><p>Blue and rose are the brand accents, used sparingly and never as a surface that competes with the photography.<span class="why">Scarcity is what keeps an accent meaning&nbsp;something.</span></p></div></li>
+      <li><span class="mono">18&nbsp;Aug</span><div><h3>Designing for Reading &amp;&nbsp;Scanning</h3><p>The hero, the owner quote and the footer stay dark in both modes.<span class="why">They are where a visitor slows down. Inverting everything would flatten the&nbsp;page.</span></p></div></li>
+      <li><span class="mono">1&nbsp;Sep</span><div><h3>Developing a Cohesive Graphic&nbsp;Language</h3><p>A line as structure, a diamond as waypoint, the logo mark as anchor.<span class="why">Four fixed rules let compositions vary without losing the&nbsp;identity.</span></p></div></li>
+      <li><span class="mono">4&nbsp;Sep</span><div><h3>Defining Internal Brand&nbsp;Communication</h3><p>It is the sharpest page in the guidelines, but publishing four negatives reads as a defence.<span class="why">Saying we are not price driven makes the reader think about&nbsp;price.</span></p></div></li>
     </ul>
   </div>
 </div></section>
 </main>
-<a class="nextlink wrap" href="website.html" style="display:block"><span class="mono">Next, part 4 of 6</span><h2>Translating Strategy into&nbsp;Design<i>→</i></h2></a><footer><div class="wrap"><span>Malhar Bapte, Master of Design Innovation and Technology, RMIT University</span><span>All work shown is property of Wonderland RV.</span></div></footer><script>
+<a class="nextlink wrap" href="website.html" style="display:block"><span class="mono">Next, part 4 of&nbsp;6</span><h2>Translating Strategy into&nbsp;Design&#8288;<i>→</i></h2></a><footer><div class="wrap"><span>Malhar Bapte, Master of Design Innovation and Technology, RMIT&nbsp;University</span><span>All work shown is property of Wonderland&nbsp;RV.</span></div></footer><script>
 (function(){
-  [].slice.call(document.querySelectorAll('.cmp')).forEach(function(c){
-    var r=c.querySelector('input');
-    var set=function(v){c.style.setProperty('--pos',v+'%')};
-    r.addEventListener('input',function(){set(r.value)});
-    var drag=false;
-    var move=function(e){var b=c.getBoundingClientRect();var v=Math.max(0,Math.min(100,(e.clientX-b.left)/b.width*100));r.value=v;set(v)};
-    c.addEventListener('pointerdown',function(e){drag=true;try{c.setPointerCapture(e.pointerId)}catch(_){}move(e)});
-    c.addEventListener('pointermove',function(e){if(drag)move(e)});
-    c.addEventListener('pointerup',function(){drag=false});
-    c.addEventListener('pointercancel',function(){drag=false});
-  });
   var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root=document.documentElement;
   /* page navigation: a pill glides to the current tab, a ghost follows the pointer */
