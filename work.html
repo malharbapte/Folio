@@ -54,12 +54,40 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-block:12px}
 .nav .me{font-family:var(--font-text);font-weight:var(--w-sub);text-decoration:none;white-space:nowrap;display:flex;align-items:center;gap:10px}
 .nav .me i{width:10px;height:10px;border-radius:50%;background:var(--sun);flex:none}
-.nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none}
-.nav ul::-webkit-scrollbar{display:none}
-.nav a.l{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-2);white-space:nowrap;padding:8px 10px;border-radius:2px}
-.nav a.l:hover{color:var(--ink)}
-.nav a.l[aria-current="page"]{color:var(--on-sun);background:var(--sun)}
-@media(max-width:900px){.nav .me span{display:none}}
+
+
+/* page navigation dock: a pill of numbered circles on the right, one per part in reading order */
+.dock{position:fixed;z-index:25;display:flex;align-items:center;background:var(--raise);border:1px solid var(--rule);border-radius:999px;--n:32px}
+.dock .node{width:var(--n);height:var(--n);flex:none;border-radius:50%;border:2px solid var(--rule);background:var(--ground);color:var(--ink-2);display:grid;place-items:center;font-family:var(--font-display);font-weight:var(--w-heading);font-size:calc(var(--n) * .4);line-height:1;transform-origin:100% 50%;transition:border-color .3s ease,background .3s ease,color .3s ease,transform .14s ease-out}
+.dock .it{position:relative;display:flex;align-items:center;text-decoration:none;border-radius:50%}
+.dock .it:focus-visible,.dock .arr:focus-visible{outline:none}
+.dock .it:focus-visible .node{outline:3px solid var(--sun);outline-offset:3px}
+.dock .it:hover .node,.dock .it:focus-visible .node{border-color:var(--ink);color:var(--ink)}
+.dock .it[data-s="done"] .node{border-color:var(--sun);color:var(--sun)}
+.dock .it[data-s="cur"] .node{background:var(--sun);border-color:var(--sun);color:var(--on-sun)}
+.dock .lbl{position:absolute;right:calc(100% + 20px);top:50%;transform:translateY(-50%) translateX(8px);opacity:0;pointer-events:none;white-space:nowrap;background:var(--raise-2);color:var(--ink);padding:7px 14px;border-radius:999px;font-weight:var(--w-sub);font-size:var(--fs-small);line-height:1.2;transition:opacity .18s ease,transform .18s ease,background .3s ease,color .3s ease}
+.dock .it:hover .lbl,.dock .it:focus-visible .lbl{opacity:1;transform:translateY(-50%)}
+.dock .it[data-s="cur"] .lbl{opacity:1;transform:translateY(-50%);background:var(--sun);color:var(--on-sun)}
+.dock .arr{width:28px;height:28px;flex:none;border-radius:50%;border:1px solid var(--rule);display:grid;place-items:center;color:var(--ink);text-decoration:none;transition:border-color .2s ease,color .2s ease}
+.dock a.arr:hover,.dock a.arr:focus-visible{border-color:var(--sun);color:var(--sun)}
+.dock a.arr:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.dock span.arr{opacity:.35}
+@media(min-width:900px) and (min-height:521px){
+  .dock{right:max(18px,env(safe-area-inset-right,0px));top:50%;transform:translateY(-50%);flex-direction:column;gap:7px;padding:12px 10px}
+  body{padding-left:max(88px,env(safe-area-inset-left,0px));padding-right:max(88px,env(safe-area-inset-right,0px))}
+}
+/* narrow or short screens: the same dock lies along the bottom edge, where a thumb reaches it */
+@media(max-width:899px),(max-height:520px){
+  .dock{left:max(12px,env(safe-area-inset-left,0px));right:max(12px,env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));flex-direction:row;justify-content:space-between;padding:8px 10px;--n:32px;max-width:420px;margin-inline:auto}
+  body{padding-bottom:calc(88px + env(safe-area-inset-bottom,0px))}
+  .dock .lbl{right:auto;left:50%;top:auto;bottom:calc(100% + 14px);transform:translateX(-50%) translateY(6px)}
+  .dock .it:hover .lbl,.dock .it:focus-visible .lbl,.dock .it[data-s="cur"] .lbl{transform:translateX(-50%)}
+  .dock .it:nth-child(2) .lbl{left:0;transform:translateY(6px)}
+  .dock .it:nth-child(2):hover .lbl,.dock .it:nth-child(2)[data-s="cur"] .lbl{transform:none}
+  .dock .it:nth-child(n+7) .lbl{left:auto;right:0;transform:translateY(6px)}
+  .dock .it:nth-child(n+7):hover .lbl,.dock .it:nth-child(n+7)[data-s="cur"] .lbl{transform:none}
+}
+@media(max-width:360px){.dock{--n:28px;padding:8px 6px}.dock .arr{width:24px;height:24px}}
 
 /* hero + page head */
 .hero{padding-block:clamp(48px,8vw,112px) clamp(32px,5vw,64px)}
@@ -317,14 +345,7 @@ body{overflow-x:clip}
 .parts a::after{bottom:-4px}
 .parts a:hover::after,.parts a:focus-visible::after{left:calc(100% - 8px)}
 
-/* tab to tab: a pill glides under the current tab, a ghost follows the pointer */
-.nav ul{position:relative}
-.nav a.l{position:relative;z-index:1;transition:color .2s ease}
-.nav ul .pill,.nav ul .ghost{position:absolute;top:0;bottom:0;left:0;width:0;border-radius:2px;pointer-events:none;z-index:0}
-.nav ul .pill{background:var(--sun);transition:transform .42s cubic-bezier(.6,0,.2,1),width .42s cubic-bezier(.6,0,.2,1)}
-.nav ul .ghost{border:1px solid var(--ink-2);opacity:0;transition:transform .26s cubic-bezier(.3,1,.4,1),width .26s ease,opacity .16s ease}
-.nav ul .ghost.on{opacity:1}
-.nav ul.pilled a.l[aria-current="page"]{background:none}
+/* in-page tabs: a bar glides under the current tab */
 .tabs.glide{position:relative}
 .tabs.glide button[aria-selected="true"]{border-bottom-color:transparent}
 .tabs .pill{position:absolute;left:0;top:0;width:0;height:4px;background:var(--sun);pointer-events:none;transition:transform .42s cubic-bezier(.6,0,.2,1),width .42s cubic-bezier(.6,0,.2,1)}
@@ -333,8 +354,8 @@ body{overflow-x:clip}
 .panel.pin{transition:transform .42s cubic-bezier(.2,.9,.3,1),opacity .32s ease}
 /* page to page: content slides out in the direction of travel and the next page slides in */
 @keyframes pgin{from{opacity:0;transform:translate(calc(var(--dir,0)*34px),calc((1 - var(--dir,0)*var(--dir,0))*12px))}to{opacity:1;transform:none}}
-body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,.3,1) backwards}
-.leaving body>*:not(.nav):not(.thirds):not(script){animation:none;opacity:0;transform:translateX(calc(var(--dir,0)*-34px));transition:opacity .22s ease,transform .26s cubic-bezier(.5,0,.8,.4)}
+body>*:not(.nav):not(.dock):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,.3,1) backwards}
+.leaving body>*:not(.nav):not(.dock):not(.thirds):not(script){animation:none;opacity:0;transform:translateX(calc(var(--dir,0)*-34px));transition:opacity .22s ease,transform .26s cubic-bezier(.5,0,.8,.4)}
 
 /* scroll: words fill in, figures open from the bottom edge */
 .wd{opacity:.25;transition:opacity .25s ease}
@@ -356,12 +377,13 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
 @media(max-width:620px){.thumbs{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:no-preference){
-  .nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
+  .dock .it[data-s="cur"] .node{--amp:1.1;--rg:11px}
+  .dock .it[data-s="cur"] .node,.nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
   .shows li:nth-child(even)::before,.timeline li:nth-child(even)::before,.pipe li:nth-child(even)::after,.parts li:nth-child(even) a::after{animation-delay:-.9s}
   .journey .nd,.street .pd{animation:pulsesvg 1.8s ease-out infinite}
 }
 @media(prefers-reduced-motion:reduce){
-  body>*:not(.nav):not(.thirds):not(script){animation:none}
+  body>*:not(.nav):not(.dock):not(.thirds):not(script){animation:none}
   .wd{opacity:1}
 }
 
@@ -371,7 +393,7 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
 
 </style>
 <script>try{var s=JSON.parse(sessionStorage.getItem('mv')||'null');if(s&&Date.now()-s.t<8000){document.documentElement.style.setProperty('--dir',s.dir);document.documentElement.setAttribute('data-from',s.from)}}catch(e){}</script>
-</head><body><header class="nav"><div class="wrap"><a class="me" href="index.html"><i></i><span>Malhar&nbsp;Bapte</span></a><ul><li><a class="l" href="index.html">Home</a></li><li><a class="l" href="brief.html">1 The&nbsp;brief</a></li><li><a class="l" href="listening.html">2&nbsp;Listening</a></li><li><a class="l" href="brand.html">3&nbsp;Brand</a></li><li><a class="l" href="website.html">4&nbsp;Website</a></li><li><a class="l" href="work.html" aria-current="page">5&nbsp;Work</a></li><li><a class="l" href="reflection.html">6&nbsp;Reflection</a></li></ul></div></header><section class="pagehead wrap"><div class="part mono"><b>05</b><span>Design in&nbsp;Practice</span></div><h1>Applying Design Across <mark>Brand&nbsp;Touchpoints</mark></h1><p class="lede">Much of my time went to promotional material for shows and events, and ongoing campaigns for specific caravan&nbsp;models.</p></section>
+</head><body><header class="nav"><div class="wrap"><a class="me" href="index.html"><i></i><span>Malhar&nbsp;Bapte</span></a></div></header><nav class="dock" aria-label="Case study pages"><a class="arr" href="website.html" aria-label="Previous part"><svg viewBox="0 0 24 24" width="55%" height="55%" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 15 6-6 6 6"/></svg></a><a class="it" href="index.html" data-s="done"><span class="node"><svg viewBox="0 0 24 24" width="52%" height="52%" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg></span><span class="lbl">Home</span></a><a class="it" href="brief.html" data-s="done"><span class="node">1</span><span class="lbl">The&nbsp;brief</span></a><a class="it" href="listening.html" data-s="done"><span class="node">2</span><span class="lbl">Listening</span></a><a class="it" href="brand.html" data-s="done"><span class="node">3</span><span class="lbl">Brand</span></a><a class="it" href="website.html" data-s="done"><span class="node">4</span><span class="lbl">Website</span></a><a class="it" href="work.html" data-s="cur" aria-current="page"><span class="node">5</span><span class="lbl">Work</span></a><a class="it" href="reflection.html" data-s="next"><span class="node">6</span><span class="lbl">Reflection</span></a><a class="arr" href="reflection.html" aria-label="Next part"><svg viewBox="0 0 24 24" width="55%" height="55%" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></a></nav><section class="pagehead wrap"><div class="part mono"><b>05</b><span>Design in&nbsp;Practice</span></div><h1>Applying Design Across <mark>Brand&nbsp;Touchpoints</mark></h1><p class="lede">Much of my time went to promotional material for shows and events, and ongoing campaigns for specific caravan&nbsp;models.</p></section>
 <main>
 <section class="sec"><div class="wrap grid">
   <div class="side"><span class="mono">Supporting Ongoing Marketing&nbsp;Activities</span><h2>Design&nbsp;Deliverables</h2><p>I worked with the brand’s ambassadors and with people outside the&nbsp;organisation.</p></div>
@@ -400,34 +422,29 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
 (function(){
   var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root=document.documentElement;
-  /* page navigation: a pill glides to the current tab, a ghost follows the pointer */
-  var ul=document.querySelector('.nav ul'),links=[],ci=-1,pill,ghost;
+  /* page navigation: the dock. The current circle moves from the page you left to the page you are on,
+     and the circles grow toward the pointer on a wide screen. */
+  var dock=document.querySelector('.dock'),links=[],ci=-1;
   function base(h){return (h||'').split('#')[0].split('?')[0]}
-  if(ul){
-    links=[].slice.call(ul.querySelectorAll('a.l'));
+  if(dock){
+    links=[].slice.call(dock.querySelectorAll('a.it'));
     links.forEach(function(a,i){if(a.getAttribute('aria-current')==='page')ci=i});
-    pill=document.createElement('span');pill.className='pill';pill.setAttribute('aria-hidden','true');
-    ghost=document.createElement('span');ghost.className='ghost';ghost.setAttribute('aria-hidden','true');
-    ul.insertBefore(ghost,ul.firstChild);ul.insertBefore(pill,ul.firstChild);ul.classList.add('pilled');
-    var place=function(el,a){el.style.width=a.offsetWidth+'px';el.style.transform='translateX('+a.offsetLeft+'px)'};
     var from=parseInt(root.getAttribute('data-from'),10);
-    var settle=function(){
-      if(ci<0)return;
-      ul.scrollLeft=Math.max(0,links[ci].offsetLeft-(ul.clientWidth-links[ci].offsetWidth)/2);
-      if(!calm&&from>=0&&from!==ci&&links[from]){
-        pill.style.transition='none';place(pill,links[from]);void pill.offsetWidth;pill.style.transition='';
-        setTimeout(function(){place(pill,links[ci])},40);from=-1;
-      }else place(pill,links[ci]);
-    };
-    settle();
-    if(document.fonts&&document.fonts.ready)document.fonts.ready.then(function(){pill.style.transition='none';if(ci>=0)place(pill,links[ci]);void pill.offsetWidth;pill.style.transition=''});
-    addEventListener('resize',function(){pill.style.transition='none';if(ci>=0)place(pill,links[ci]);void pill.offsetWidth;pill.style.transition=''});
-    links.forEach(function(a){
-      a.addEventListener('pointerenter',function(){place(ghost,a);ghost.classList.add('on')});
-      a.addEventListener('focus',function(){place(ghost,a);ghost.classList.add('on')});
-      a.addEventListener('blur',function(){ghost.classList.remove('on')});
+    var paint=function(c){links.forEach(function(a,i){a.setAttribute('data-s',i<c?'done':i===c?'cur':'next')})};
+    if(!calm&&from>=0&&from!==ci&&links[from]){paint(from);void dock.offsetWidth;setTimeout(function(){paint(ci)},60)}
+    var vert=matchMedia('(min-width:900px) and (min-height:521px)'),fine=matchMedia('(hover:hover) and (pointer:fine)');
+    var nodes=links.map(function(a){return a.querySelector('.node')});
+    var reset=function(){nodes.forEach(function(n){n.style.transform='';n.style.zIndex=''})};
+    dock.addEventListener('pointermove',function(e){
+      if(calm||!vert.matches||!fine.matches)return;
+      nodes.forEach(function(n){var r=n.getBoundingClientRect(),d=Math.abs(e.clientY-(r.top+r.height/2)),s=1+.5*Math.max(0,1-d/96);n.style.transform='scale('+s.toFixed(3)+')';n.style.zIndex=s>1.2?2:''});
     });
-    ul.addEventListener('pointerleave',function(){ghost.classList.remove('on')});
+    dock.addEventListener('pointerleave',reset);
+    dock.addEventListener('keydown',function(e){
+      var k=e.key,st=(k==='ArrowDown'||k==='ArrowRight')?1:(k==='ArrowUp'||k==='ArrowLeft')?-1:0;
+      if(!st)return;var at=links.indexOf(document.activeElement);if(at<0)return;
+      e.preventDefault();var t=links[at+st];if(t)t.focus();
+    });
   }
   document.addEventListener('click',function(e){
     if(calm||e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;
@@ -437,7 +454,7 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
     if(ti<0||ti===ci)return;
     e.preventDefault();var dir=ti>ci?1:-1;
     try{sessionStorage.setItem('mv',JSON.stringify({from:ci,dir:dir,t:Date.now()}))}catch(_){}
-    root.style.setProperty('--dir',dir);if(pill)place(pill,links[ti]);root.classList.add('leaving');
+    root.style.setProperty('--dir',dir);root.classList.add('leaving');
     setTimeout(function(){location.href=h},300);
   });
   addEventListener('pageshow',function(e){if(e.persisted){root.classList.remove('leaving')}});
