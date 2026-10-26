@@ -40,7 +40,7 @@ a{color:inherit}
 :focus-visible{outline:3px solid var(--sun);outline-offset:3px}
 .wrap{max-width:var(--max);margin-inline:auto}
 img{display:block;max-width:100%;height:auto}
-h1,h2,h3,h4{font-family:var(--font-text);font-weight:var(--w-sub);letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
+h1,h2,h3{font-family:var(--font-text);font-weight:var(--w-sub);letter-spacing:-.01em;line-height:1.1;margin:0;text-wrap:balance}
 h1,.h2,.nextlink h2{font-family:var(--font-display);font-weight:var(--w-heading);letter-spacing:-.02em;line-height:1.04}
 b,strong{font-weight:var(--w-sub)}
 em,i{font-style:normal}
@@ -63,8 +63,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 
 /* hero + page head */
 .hero{padding-block:clamp(48px,8vw,112px) clamp(32px,5vw,64px)}
-.hero h1{font-size:clamp(2.8rem,7.4vw,6.4rem);line-height:.95}
-.hero h1 mark,.pagehead h1 mark{background:var(--sun);color:var(--on-sun);padding:0 .1em;margin-left:-.04em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero h1{font-size:clamp(2.8rem,7.4vw,6.4rem);line-height:1.04}
+.hero h1 mark,.pagehead h1 mark{background:linear-gradient(var(--sun),var(--sun)) 0 56%/100% 1.04em no-repeat;color:var(--on-sun);padding:0 .1em;margin-left:-.04em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
 .hero .lede{font-size:clamp(1.1rem,1.7vw,1.4rem);max-width:44ch;margin-top:28px;color:var(--ink-2)}
 .kicker{color:var(--sun);margin-bottom:22px;display:block}
 .meta{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin-top:52px;border-top:1px solid var(--ink)}
@@ -72,7 +72,8 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .meta dt{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2)}
 .meta dd{margin:4px 0 0;font-weight:var(--w-sub)}
 .pagehead{padding-block:clamp(48px,7vw,96px) clamp(28px,4vw,56px);border-bottom:1px solid var(--ink)}
-.pagehead h1{font-size:clamp(2.4rem,5.8vw,4.9rem);line-height:.98}
+.pagehead h1{font-size:clamp(2.4rem,5.8vw,4.9rem);line-height:1.04}
+@media(max-width:520px){.pagehead h1{font-size:clamp(1.6rem,7.7vw,2.4rem)}}
 .pagehead .lede{font-size:clamp(1.05rem,1.5vw,1.3rem);color:var(--ink-2);max-width:48ch;margin:24px 0 0}
 .pagehead .part{display:flex;gap:14px;align-items:center;color:var(--sun);margin-bottom:22px}
 .pagehead .part b{font-family:var(--font-display);font-weight:var(--w-heading);font-size:2.2rem;letter-spacing:-.02em;line-height:1}
@@ -91,7 +92,7 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 @media(max-width:860px){.side,.main{grid-column:1/-1}}
 .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(20px,3vw,40px)}
 .cols>div{min-width:0;border-top:1px solid var(--ink);padding-top:14px}
-.cols h4{font-size:var(--fs-sub);margin-bottom:8px}
+.cols h3{font-size:var(--fs-sub);margin-bottom:8px}
 .cols p{font-size:var(--fs-small);color:var(--ink-2);margin:0}
 .k{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--sun);margin-bottom:8px;display:block}
 .k.o{color:var(--orange)}
@@ -111,14 +112,9 @@ figure{margin:0}
 figcaption{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-top:10px;line-height:1.5}
 figcaption .credit{display:block;color:var(--ink)}
 figure img{width:100%;border:1px solid var(--rule)}
-.slot{aspect-ratio:16/10;border:1.5px dashed var(--rule);display:grid;place-items:center;text-align:center;padding:20px;color:var(--ink-2);
-  background:repeating-linear-gradient(135deg,transparent 0 14px,color-mix(in srgb,var(--rule) 40%,transparent) 14px 15px)}
-.slot span{display:block;font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
-.slot em{font-style:normal;max-width:34ch;display:block;font-size:var(--fs-small)}
-.slot.tall{aspect-ratio:3/4}
 .shots{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,36px)}
 .shots figure{min-width:0}
-.shots h4{font-size:var(--fs-sub);margin:14px 0 4px}
+.shots h3{font-size:var(--fs-sub);margin:14px 0 4px}
 .pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(20px,3vw,36px)}
 
 /* guideline gallery */
@@ -144,7 +140,7 @@ figure img{width:100%;border:1px solid var(--rule)}
 .scale .band{position:absolute;top:72px;height:14px;background:var(--sun)}
 .scale .dot{position:absolute;top:72px;width:14px;height:14px;border-radius:50%;background:var(--sun);transform:translateX(-50%)}
 .scale .lab{position:absolute;transform:translateX(-50%);text-align:center;font-size:var(--fs-small);line-height:1.2;white-space:nowrap;color:var(--ink-2)}
-.scale .lab b{font-family:var(--font-text);font-weight:var(--w-sub);font-size:1.05rem;display:block;color:var(--ink)}
+.scale .lab b{font-family:var(--font-text);font-weight:var(--w-sub);font-size:var(--fs-body);display:block;color:var(--ink)}
 .scale .lab.up{top:10px}
 @media(max-width:620px){.scale .lab{font-size:var(--fs-caption)}.scale .lab b{font-size:var(--fs-small)}}
 
@@ -152,9 +148,9 @@ figure img{width:100%;border:1px solid var(--rule)}
 .moves{list-style:none;margin:0;padding:0}
 .moves li{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1.4fr);gap:20px;padding:18px 0;border-top:1px solid var(--rule);align-items:baseline}
 .moves li:last-child{border-bottom:1px solid var(--rule)}
-.moves h4{font-size:var(--fs-sub-lg);line-height:1.1}
-.moves li.old h4{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--orange);color:var(--ink-2)}
-.moves li.now h4{color:var(--sun)}
+.moves h3{font-size:var(--fs-sub-lg);line-height:1.1}
+.moves li.old h3{text-decoration:line-through;text-decoration-thickness:2px;text-decoration-color:var(--orange);color:var(--ink-2)}
+.moves li.now h3{color:var(--sun)}
 .moves p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 @media(max-width:620px){.moves li{grid-template-columns:1fr;gap:6px}}
 
@@ -181,14 +177,14 @@ figure img{width:100%;border:1px solid var(--rule)}
 .decisions li{display:grid;grid-template-columns:84px minmax(0,1fr);gap:20px;padding:20px 0;border-top:1px solid var(--rule)}
 .decisions li:last-child{border-bottom:1px solid var(--rule)}
 .decisions .mono{color:var(--sun);padding-top:6px}
-.decisions h4{font-size:var(--fs-sub);line-height:1.1;margin-bottom:6px}
+.decisions h3{font-size:var(--fs-sub);line-height:1.1;margin-bottom:6px}
 .decisions p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 .decisions .why{display:block;margin-top:8px;font-size:var(--fs-small);color:var(--ink)}
 @media(max-width:520px){.decisions li{grid-template-columns:1fr;gap:4px}}
 .findings{list-style:none;margin:0;padding:0;counter-reset:f}
 .findings li{padding:20px 0;border-top:1px solid var(--rule);display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:20px}
 .findings li:last-child{border-bottom:1px solid var(--rule)}
-.findings h4{font-size:var(--fs-sub);line-height:1.1}
+.findings h3{font-size:var(--fs-sub);line-height:1.1}
 .findings p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 .findings .did{display:block;margin-top:10px;color:var(--ink);font-size:var(--fs-small)}
 .findings .did::before{content:"Decision: ";font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--sun)}
@@ -206,7 +202,7 @@ figure img{width:100%;border:1px solid var(--rule)}
 .shows li::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--sun);transform:translateY(-1px)}
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(20px,3vw,48px)}
 .two>div{min-width:0}
-.two h4{font-size:var(--fs-sub);margin-bottom:10px}
+.two h3{font-size:var(--fs-sub);margin-bottom:10px}
 .timeline{list-style:none;margin:0;padding:0;border-left:2px solid var(--violet)}
 .timeline li{padding:0 0 26px 24px;position:relative}
 .timeline li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--sun)}
@@ -216,26 +212,10 @@ figure img{width:100%;border:1px solid var(--rule)}
 /* gallery */
 .gal{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(16px,2.4vw,32px);align-items:start}
 .gal figure{min-width:0}
-.gal .g1,.gal .g2,.gal .g3{grid-column:span 4}
-.gal .g4{grid-column:span 8}.gal .g5{grid-column:span 4}.gal .g6{grid-column:1/-1}
-@media(max-width:860px){.gal .g1,.gal .g2,.gal .g3,.gal .g4,.gal .g5{grid-column:span 6}}
-@media(max-width:520px){.gal .g1,.gal .g2,.gal .g3,.gal .g4,.gal .g5{grid-column:1/-1}}
-
-/* compare */
-.cmp{position:relative;aspect-ratio:16/10;overflow:hidden;border:1px solid var(--ink);background:var(--raise);touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize}
-.cmp .layer{position:absolute;inset:0;display:grid;place-items:center;padding:24px 9%}
-.cmp .layer img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;border:0}
-.cmp .new{clip-path:inset(0 0 0 var(--pos,50%));background:var(--raise-2);justify-items:end}
-.cmp .old{background:var(--raise);justify-items:start}
-.cmp .tag{position:absolute;top:12px;font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;z-index:3}
-.cmp .tag.l{left:12px;background:var(--orange);color:var(--ground)}
-.cmp .tag.r{right:12px;background:var(--sun);color:var(--on-sun)}
-.cmp .handle{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:var(--sun);transform:translateX(-50%);z-index:2;pointer-events:none}
-.cmp .handle::after{content:"";position:absolute;top:50%;left:50%;width:26px;height:26px;border-radius:50%;background:var(--sun);transform:translate(-50%,-50%);border:3px solid var(--ground)}
-.cmp input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0;z-index:4}
-.cmp .note{font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);max-width:30ch;line-height:1.6}
-.cmp .note b{display:block;font-family:var(--font-text);font-weight:var(--w-sub);font-size:var(--fs-sub-lg);letter-spacing:-.01em;text-transform:none;color:var(--ink);margin-bottom:6px}
-.cmp .new .note{text-align:right}
+.gal .g1,.gal .g2,.gal .g3,.gal .g4{grid-column:span 4}
+.gal .g6{grid-column:span 8;align-self:center}
+@media(max-width:860px){.gal .g1,.gal .g2,.gal .g3,.gal .g4{grid-column:span 6}.gal .g6{grid-column:1/-1}}
+@media(max-width:520px){.gal .g1,.gal .g2,.gal .g3,.gal .g4{grid-column:1/-1}}
 
 /* tabs */
 .tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--ink);margin-bottom:28px}
@@ -277,8 +257,8 @@ figure img{width:100%;border:1px solid var(--rule)}
 /* next / prev */
 .nextlink{display:block;text-decoration:none;padding-block:clamp(40px,6vw,80px);border-top:1px solid var(--ink)}
 .nextlink .mono{color:var(--ink-2)}
-.nextlink h2{font-size:clamp(2rem,6vw,4.6rem);line-height:1;margin-top:12px;display:flex;gap:.3em;align-items:baseline;flex-wrap:wrap}
-.nextlink h2 i{font-style:normal;color:var(--sun);transition:transform .2s}
+.nextlink h2{font-size:clamp(2rem,6vw,4.6rem);line-height:1;margin-top:12px}
+.nextlink h2 i{font-style:normal;color:var(--sun);transition:transform .2s;display:inline-block;margin-left:.3em}
 .nextlink:hover h2 i{transform:translateX(8px)}
 .nextlink p{color:var(--ink-2);margin:14px 0 0}
 footer{border-top:1px solid var(--rule);padding-block:28px 48px}
@@ -300,18 +280,13 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-bet
 .thirds .v{top:0;bottom:0;width:1px}.thirds .h{left:0;right:0;height:1px}
 .thirds b{position:absolute;width:12px;height:12px;border:2px solid var(--orange);border-radius:50%;transform:translate(-50%,-50%);background:none}
 
-/* old and new screenshots, work in progress */
-.cmpfig figcaption{margin-top:16px}
-.cmpfig h4{font-size:var(--fs-sub);margin:0 0 12px}
+/* work in progress */
 .wip{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
 .wip figure:first-child{grid-column:1/-1}
 .wip img{background:var(--raise)}
 @media(max-width:620px){.wip{grid-template-columns:1fr}}
-.pair2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(20px,3vw,36px)}
-@media(max-width:620px){.pair2{grid-template-columns:1fr}}
 .flowfig img{background:#fff}.flowfig{margin-top:40px}
 .flowfig+.links{margin-top:20px}
-.cmpfig+.cmpfig,.cmpfig+.pair2{margin-top:44px}
 
 /* ---------- motion: circles that pulse, glide navigation, scroll scrub ---------- */
 /* pulse: every circle breathes and sends out a soft ring */
@@ -381,7 +356,7 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
 @media(max-width:620px){.thumbs{grid-template-columns:1fr}}
 
 @media(prefers-reduced-motion:no-preference){
-  .nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.cmp .handle::after,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
+  .nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
   .shows li:nth-child(even)::before,.timeline li:nth-child(even)::before,.pipe li:nth-child(even)::after,.parts li:nth-child(even) a::after{animation-delay:-.9s}
   .journey .nd,.street .pd{animation:pulsesvg 1.8s ease-out infinite}
 }
@@ -390,37 +365,41 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
   .wd{opacity:1}
 }
 
+/* review fixes */
+@media(max-width:360px){.hero h1{font-size:2.3rem}.pagehead h1{font-size:1.5rem}}
+.band-cloud .pull+p{margin-top:18px}
+
 </style>
 <script>try{var s=JSON.parse(sessionStorage.getItem('mv')||'null');if(s&&Date.now()-s.t<8000){document.documentElement.style.setProperty('--dir',s.dir);document.documentElement.setAttribute('data-from',s.from)}}catch(e){}</script>
-</head><body><header class="nav"><div class="wrap"><a class="me" href="index.html"><i></i><span>Malhar Bapte</span></a><ul><li><a class="l" href="index.html">Home</a></li><li><a class="l" href="brief.html">1 The brief</a></li><li><a class="l" href="listening.html">2 Listening</a></li><li><a class="l" href="brand.html">3 Brand</a></li><li><a class="l" href="website.html">4 Website</a></li><li><a class="l" href="work.html">5 Work</a></li><li><a class="l" href="reflection.html" aria-current="page">6 Reflection</a></li></ul></div></header><section class="pagehead wrap"><div class="part mono"><b>06</b><span>Reflection &amp;&nbsp;Growth</span></div><h1>Reflecting on <mark>Professional&nbsp;Practice</mark></h1><p class="lede">The people, the shifting scope, and what the placement taught me about practising design inside a business.</p></section>
+</head><body><header class="nav"><div class="wrap"><a class="me" href="index.html"><i></i><span>Malhar&nbsp;Bapte</span></a><ul><li><a class="l" href="index.html">Home</a></li><li><a class="l" href="brief.html">1 The&nbsp;brief</a></li><li><a class="l" href="listening.html">2&nbsp;Listening</a></li><li><a class="l" href="brand.html">3&nbsp;Brand</a></li><li><a class="l" href="website.html">4&nbsp;Website</a></li><li><a class="l" href="work.html">5&nbsp;Work</a></li><li><a class="l" href="reflection.html" aria-current="page">6&nbsp;Reflection</a></li></ul></div></header><section class="pagehead wrap"><div class="part mono"><b>06</b><span>Reflection &amp;&nbsp;Growth</span></div><h1>Reflecting on <mark>Professional&nbsp;Practice</mark></h1><p class="lede">The people, the shifting scope, and what the placement taught me about practising design inside a&nbsp;business.</p></section>
 <main>
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Collaboration</span><h2>Collaboration &amp; Stakeholder&nbsp;Engagement</h2><p>Small, frequent reviews kept feedback specific and early.</p></div>
+  <div class="side"><span class="mono">Collaboration</span><h2>Collaboration &amp; Stakeholder&nbsp;Engagement</h2><p>Small, frequent reviews kept feedback specific and&nbsp;early.</p></div>
   <div class="main">
     <div class="cols">
-      <div><span class="k">Marketing Manager</span><h4>Piyush Diwte</h4><p>My host and supervisor. He briefs the work, reviews it and signs it off. We meet formally with the directors every Friday, and informally whenever a decision needs a second opinion.</p></div>
-      <div><span class="k">Outbound and Wonderland</span><h4>The directors</h4><p>They answered the brand discovery document. Their words are the evidence the positioning rests on. They also approved the values.</p></div>
-      <div><span class="k">Outbound showroom</span><h4>The sales executives</h4><p>They gave me the sales process as they actually run it. They are also the people the site has to make faster, so they are users of the work as much as colleagues.</p></div>
+      <div><span class="k">Marketing&nbsp;Manager</span><h3>Piyush&nbsp;Diwte</h3><p>My host and supervisor. He briefs the work, reviews it and signs it off. We meet formally with the directors every Friday, and informally whenever a decision needs a second&nbsp;opinion.</p></div>
+      <div><span class="k">Outbound and&nbsp;Wonderland</span><h3>The&nbsp;directors</h3><p>They answered the brand discovery document. Their words are the evidence the positioning rests on. They also approved the&nbsp;values.</p></div>
+      <div><span class="k">Outbound&nbsp;showroom</span><h3>The sales&nbsp;executives</h3><p>They gave me the sales process as they actually run it. They are also the people the site has to make faster, so they are users of the work as much as&nbsp;colleagues.</p></div>
     </div>
     <h3 style="margin:56px 0 24px;font-size:1.5rem">Feedback &amp;&nbsp;Decision-making</h3>
     <ul class="timeline">
-      <li><span class="mono">Early mockups</span><p>Feedback: remove the home button, take out the negative space in the header, and keep colours consistent rather than several shades of one hue. I took the last point into the palette.</p></li>
-      <li><span class="mono">4 September</span><p>The directors approved the positioning, vision statement and four values.</p></li>
-      <li><span class="mono">25 September draft</span><p>The direction was to add substantially more trust-building information to the Outbound homepage and to build the other pages. The homepage now carries a reassurance band, and About Us and Contact Us followed.</p></li>
+      <li><span class="mono">Early&nbsp;mockups</span><p>Feedback: remove the home button, take out the negative space in the header, and keep colours consistent rather than several shades of one hue. I took the last point into the&nbsp;palette.</p></li>
+      <li><span class="mono">4&nbsp;September</span><p>The directors approved the positioning, vision statement and four&nbsp;values.</p></li>
+      <li><span class="mono">25 September&nbsp;draft</span><p>The direction was to add substantially more trust-building information to the Outbound homepage and to build the other pages. The homepage now carries a reassurance band, and About Us and Contact Us&nbsp;followed.</p></li>
     </ul>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">The scope moved</span><h2>Managing Scope &amp;&nbsp;Expectations</h2></div>
+  <div class="side"><span class="mono">The scope&nbsp;moved</span><h2>Managing Scope &amp;&nbsp;Expectations</h2></div>
   <div class="main"><div class="band-violet">
-    <p class="pull" style="margin:0;color:inherit">The website will not be finished inside ten weeks.</p>
-    <p>The brand work was not in the brief but had to come first. Show season took much of my time. And twelve hours a week is a project a studio would staff with a team. I flagged the timing concern with Piyush after the first meeting, and we agreed to finish a set number of pages properly instead of covering the whole site badly. Raising it early turned a problem into a decision.</p>
+    <p class="pull" style="margin:0;color:inherit">The website will not be finished inside ten&nbsp;weeks.</p>
+    <p>The brand work was not in the brief but had to come first. Show season took much of my time. And twelve hours a week is a project a studio would staff with a team. I flagged the timing concern with Piyush after the first meeting, and we agreed to finish a set number of pages properly instead of covering the whole site badly. Raising it early turned a problem into a&nbsp;decision.</p>
   </div></div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Reflection</span><h2>Reflecting on My Professional&nbsp;Development</h2><p>Each read the same way: what I found, what I changed, and what it taught me.</p></div>
+  <div class="side"><span class="mono">Reflection</span><h2>Reflecting on My Professional&nbsp;Development</h2><p>Each read the same way: what I found, what I changed, and what it taught&nbsp;me.</p></div>
   <div class="main">
     <div class="tabs" role="tablist" aria-label="Reflection categories" id="tabs">
       <button role="tab" aria-selected="true" aria-controls="p1" id="t1">Collaboration</button>
@@ -430,46 +409,35 @@ body>*:not(.nav):not(.thirds):not(script){animation:pgin .5s cubic-bezier(.2,.9,
       <button role="tab" aria-selected="false" aria-controls="p5" id="t5" tabindex="-1">Growth</button>
       <button role="tab" aria-selected="false" aria-controls="p6" id="t6" tabindex="-1">Conclusion</button>
     </div>
-<div class="panel" id="p1" role="tabpanel" aria-labelledby="t1"><h3>Improving Collaboration &amp;&nbsp;Workflow</h3><div class="cols"><div><span class="k">What I found</span><p>In my first week I started designing as soon as instructions arrived, without questioning the brief. I was new and assumed things would become clearer once I began. My assumptions led to avoidable revisions.</p></div><div><span class="k">What I changed</span><p>I began asking about purpose, audience and requirements, wrote a basic brief, and agreed the direction with my manager before opening Illustrator. Setting expectations first reduced the revisions.</p></div><div><span class="k">What it taught me</span><p>Collaboration does not stop when I produce an asset alone. My manager reviews, the directors decide, and the conversation is about what a design does more than how it looks.</p></div></div><p class="line">The time I thought I was saving by starting immediately was being lost in revisions.</p></div><div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden><h3>Adapting Design Methods to&nbsp;Practice</h3><div class="cols"><div><span class="k">What I found</span><p>At university I research, experiment and iterate before committing. Deadlines here rarely allowed that. My first magazine ad had no brief and no sketches, and it took about nine iterations.</p></div><div><span class="k">What I changed</span><p>I separated planning from execution and agreed the creative direction before production. I used competitor analysis, Pinterest and ChatGPT mockups to explore quickly, and kept the judgement myself.</p></div><div><span class="k">What it taught me</span><p>Iteration is still essential, but it needs a purpose. Small moves such as white space, orange as an accent and the typeface’s quotation marks built a more consistent direction.</p></div></div><p class="line">An effective process is not the one with the most iterations. It is the one that uses time and resources intelligently.</p></div><div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden><h3>Communicating &amp; Defending Design&nbsp;Decisions</h3><div class="cols"><div><span class="k">What I found</span><p>Management asked whether a design carried the message and served the business. I was thinking in concepts and visual relationships, and I felt disappointed when work I had invested in was rejected.</p></div><div><span class="k">What I changed</span><p>I started explaining the purpose of each decision and how it benefits the business. I treated feedback as a view on the work, not on me, and reminded myself I was contributing to someone else’s business.</p></div><div><span class="k">What it taught me</span><p>As my confidence grew I recommended changes, and some of my branding recommendations were implemented. A good idea is not enough if I cannot communicate its value.</p></div></div><p class="line">As designers, we often forget that we are designing for people who may not understand design.</p></div><div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden><h3>Lessons from Professional&nbsp;Practice</h3><div class="cols"><div><span class="k">What I found</span><p>I had not expected how wide a designer’s responsibilities are in a business. I had to learn unfamiliar techniques, decide with incomplete information and respond to changes nobody planned.</p></div><div><span class="k">What I changed</span><p>I now think ahead before I finalise a decision: what could go wrong, whether the information is there, and whether the approach is realistic. If something needs more time, I say so early.</p></div><div><span class="k">What it taught me</span><p>This is not my strongest creative work, but it was the best I could offer in the time. A solution that is live can be worth more than one I keep perfecting.</p></div></div><p class="line">Design quality has to be judged in relation to its context.</p></div><div class="panel" id="p5" role="tabpanel" aria-labelledby="t5" hidden><h3>Navigating Challenges &amp; Building&nbsp;Confidence</h3><div class="cols"><div><span class="k">What I found</span><p>In a two-person team I often made assets I had never made before. Urgent requests kept rearranging my day, and I put pressure on myself over how long simple tasks took.</p></div><div><span class="k">What I changed</span><p>I researched and learned each technique as I went, kept a daily to-do list and left room for unplanned work. I became more comfortable asking questions instead of assuming I should already know.</p></div><div><span class="k">What it taught me</span><p>Compared with my first week, I communicate with stakeholders more confidently, anticipate challenges more strategically and work more independently on unfamiliar projects.</p></div></div><p class="line">Growth does not always show in more complex outcomes. Sometimes it shows in how I communicate, manage responsibilities and respond to uncertainty.</p></div><div class="panel" id="p6" role="tabpanel" aria-labelledby="t6" hidden><h3>Evaluating My Professional&nbsp;Growth</h3><div class="cols"><div><span class="k">Skills &amp; Capabilities&nbsp;Developed</span><p>A more structured and deliberate workflow, with planning and early agreement before production. More confidence working with people from non-design backgrounds, and a more objective view of feedback.</p></div><div><span class="k">Areas for Further&nbsp;Development</span><p>Producing high-quality work efficiently, strengthening my strategic thinking, and challenging a decision with more confidence when I believe an alternative offers greater value.</p></div><div><span class="k">Future Professional&nbsp;Direction</span><p>I am most motivated by variety. I want to work across different industries, clients and problems, rather than keep producing similar assets within one visual language.</p></div></div><p class="line">The internship was an important transition between academic learning and professional practice.</p></div>
+<div class="panel" id="p1" role="tabpanel" aria-labelledby="t1"><h3>Improving Collaboration &amp;&nbsp;Workflow</h3><div class="cols"><div><span class="k">What I&nbsp;found</span><p>In my first week I started designing as soon as instructions arrived, without questioning the brief. I was new and assumed things would become clearer once I began. My assumptions led to avoidable&nbsp;revisions.</p></div><div><span class="k">What I&nbsp;changed</span><p>I began asking about purpose, audience and requirements, wrote a basic brief, and agreed the direction with my manager before opening Illustrator. Setting expectations first reduced the&nbsp;revisions.</p></div><div><span class="k">What it taught&nbsp;me</span><p>Collaboration does not stop when I produce an asset alone. My manager reviews, the directors decide, and the conversation is about what a design does more than how it&nbsp;looks.</p></div></div><p class="line">The time I thought I was saving by starting immediately was being lost in&nbsp;revisions.</p></div><div class="panel" id="p2" role="tabpanel" aria-labelledby="t2" hidden><h3>Adapting Design Methods to&nbsp;Practice</h3><div class="cols"><div><span class="k">What I&nbsp;found</span><p>At university I research, experiment and iterate before committing. Deadlines here rarely allowed that. My first magazine ad had no brief and no sketches, and it took about nine&nbsp;iterations.</p></div><div><span class="k">What I&nbsp;changed</span><p>I separated planning from execution and agreed the creative direction before production. I used competitor analysis, Pinterest and ChatGPT mockups to explore quickly, and kept the judgement&nbsp;myself.</p></div><div><span class="k">What it taught&nbsp;me</span><p>Iteration is still essential, but it needs a purpose. Small moves such as white space, orange as an accent and the typeface’s quotation marks built a more consistent&nbsp;direction.</p></div></div><p class="line">An effective process is not the one with the most iterations. It is the one that uses time and resources&nbsp;intelligently.</p></div><div class="panel" id="p3" role="tabpanel" aria-labelledby="t3" hidden><h3>Communicating &amp; Defending Design&nbsp;Decisions</h3><div class="cols"><div><span class="k">What I&nbsp;found</span><p>Management asked whether a design carried the message and served the business. I was thinking in concepts and visual relationships, and I felt disappointed when work I had invested in was&nbsp;rejected.</p></div><div><span class="k">What I&nbsp;changed</span><p>I started explaining the purpose of each decision and how it benefits the business. I treated feedback as a view on the work, not on me, and reminded myself I was contributing to someone else’s&nbsp;business.</p></div><div><span class="k">What it taught&nbsp;me</span><p>As my confidence grew I recommended changes, and some of my branding recommendations were implemented. A good idea is not enough if I cannot communicate its&nbsp;value.</p></div></div><p class="line">As designers, we often forget that we are designing for people who may not understand&nbsp;design.</p></div><div class="panel" id="p4" role="tabpanel" aria-labelledby="t4" hidden><h3>Lessons from Professional&nbsp;Practice</h3><div class="cols"><div><span class="k">What I&nbsp;found</span><p>I had not expected how wide a designer’s responsibilities are in a business. I had to learn unfamiliar techniques, decide with incomplete information and respond to changes nobody&nbsp;planned.</p></div><div><span class="k">What I&nbsp;changed</span><p>I now think ahead before I finalise a decision: what could go wrong, whether the information is there, and whether the approach is realistic. If something needs more time, I say so&nbsp;early.</p></div><div><span class="k">What it taught&nbsp;me</span><p>This is not my strongest creative work, but it was the best I could offer in the time. A solution that is live can be worth more than one I keep&nbsp;perfecting.</p></div></div><p class="line">Design quality has to be judged in relation to its&nbsp;context.</p></div><div class="panel" id="p5" role="tabpanel" aria-labelledby="t5" hidden><h3>Navigating Challenges &amp; Building&nbsp;Confidence</h3><div class="cols"><div><span class="k">What I&nbsp;found</span><p>In a two-person team I often made assets I had never made before. Urgent requests kept rearranging my day, and I put pressure on myself over how long simple tasks&nbsp;took.</p></div><div><span class="k">What I&nbsp;changed</span><p>I researched and learned each technique as I went, kept a daily to-do list and left room for unplanned work. I became more comfortable asking questions instead of assuming I should already&nbsp;know.</p></div><div><span class="k">What it taught&nbsp;me</span><p>Compared with my first week, I communicate with stakeholders more confidently, anticipate challenges more strategically and work more independently on unfamiliar&nbsp;projects.</p></div></div><p class="line">Growth does not always show in more complex outcomes. Sometimes it shows in how I communicate, manage responsibilities and respond to&nbsp;uncertainty.</p></div><div class="panel" id="p6" role="tabpanel" aria-labelledby="t6" hidden><h3>Evaluating My Professional&nbsp;Growth</h3><div class="cols"><div><span class="k">Skills &amp; Capabilities&nbsp;Developed</span><p>A more structured and deliberate workflow, with planning and early agreement before production. More confidence working with people from non-design backgrounds, and a more objective view of&nbsp;feedback.</p></div><div><span class="k">Areas for Further&nbsp;Development</span><p>Producing high-quality work efficiently, strengthening my strategic thinking, and challenging a decision with more confidence when I believe an alternative offers greater&nbsp;value.</p></div><div><span class="k">Future Professional&nbsp;Direction</span><p>I am most motivated by variety. I want to work across different industries, clients and problems, rather than keep producing similar assets within one visual&nbsp;language.</p></div></div><p class="line">The internship was an important transition between academic learning and professional&nbsp;practice.</p></div>
   </div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
   <div class="side"><span class="mono">Takeaways</span><h2>Key Professional&nbsp;Takeaways</h2></div>
   <div class="main"><div class="six">
-    <div><b>Plan before pixels</b><p>I used to open Illustrator the moment a brief arrived. The revisions cost more time than planning would have. Now I agree the direction first.</p></div>
-    <div><b>Iteration needs a purpose</b><p>At university, iteration finds the concept. In a business it has to refine an agreed one: my first ad took about nine rounds because I used iteration to find the idea.</p></div>
-    <div><b>Explain what it does</b><p>Directors judged what a design would do before how it looked. I now explain what each decision achieves for the business, in their terms.</p></div>
-    <div><b>Feedback is not a verdict</b><p>A rejected design is not a judgement on me. I am contributing to someone else’s business, and separating that from my own attachment made feedback easier to use.</p></div>
-    <div><b>The design is the short part</b><p>Sourcing imagery, organising information and handling feedback took longer than the design itself. I allow time for urgent requests and say early when something needs more.</p></div>
-    <div><b>Quality depends on context</b><p>A finished solution that is live can be worth more than a perfect one that is not. I still want stronger work in less time, and that is my next goal.</p></div>
+    <div><b role="heading" aria-level="3">Plan Before&nbsp;Pixels</b><p>I used to open Illustrator the moment a brief arrived. The revisions cost more time than planning would have. Now I agree the direction&nbsp;first.</p></div>
+    <div><b role="heading" aria-level="3">Iteration Needs a&nbsp;Purpose</b><p>At university, iteration finds the concept. In a business it has to refine an agreed one: my first ad took about nine rounds because I used iteration to find the&nbsp;idea.</p></div>
+    <div><b role="heading" aria-level="3">Explain What It&nbsp;Does</b><p>Directors judged what a design would do before how it looked. I now explain what each decision achieves for the business, in their&nbsp;terms.</p></div>
+    <div><b role="heading" aria-level="3">Feedback Is Not a&nbsp;Verdict</b><p>A rejected design is not a judgement on me. I am contributing to someone else’s business, and separating that from my own attachment made feedback easier to&nbsp;use.</p></div>
+    <div><b role="heading" aria-level="3">The Design Is the Short&nbsp;Part</b><p>Sourcing imagery, organising information and handling feedback took longer than the design itself. I allow time for urgent requests and say early when something needs&nbsp;more.</p></div>
+    <div><b role="heading" aria-level="3">Quality Depends on&nbsp;Context</b><p>A finished solution that is live can be worth more than a perfect one that is not. I still want stronger work in less time, and that is my next&nbsp;goal.</p></div>
   </div></div>
 </div></section>
 
 <section class="sec"><div class="wrap grid">
-  <div class="side"><span class="mono">Profile</span><h2>Malhar Bapte</h2><p class="dim">Practice: brand strategy and consultancy, communication design, service design and systems thinking.</p><p class="dim">Tools: Figma, Illustrator, Photoshop, Miro, HTML and CSS, Git, Claude.</p></div>
+  <div class="side"><span class="mono">Profile</span><h2>Malhar&nbsp;Bapte</h2><p class="dim">Practice: brand strategy and consultancy, communication design, service design and systems&nbsp;thinking.</p><p class="dim">Tools: Figma, Illustrator, Photoshop, Miro, HTML and CSS, Git,&nbsp;Claude.</p></div>
   <div class="main profile">
-    <p>I see myself as a Brand Strategist and Consultant, bringing together communication design, service design and systems thinking to understand, define and visualise brands.</p>
-    <p class="small">Currently pursuing a Master of Design Innovation and Technology at RMIT University, my approach extends beyond visual identities to explore how businesses operate, the values they represent, the people they serve and the interconnected systems that shape their experiences.</p>
-    <p class="small">Through my professional experience and education, I have developed the ability to translate business objectives, stakeholder perspectives and customer insights into clear brand positioning, strategic direction and cohesive visual communication. I approach branding by understanding the broader business ecosystem, identifying opportunities and creating meaningful connections between businesses and their audiences.</p>
-    <p class="small">My objective is to help businesses articulate their identities, develop distinctive brand strategies and translate them into consistent visual and experiential touchpoints. I aim to bridge strategic thinking and creative execution, creating brands that are purposeful, recognisable and aligned with their business objectives.</p>
+    <p>I see myself as a Brand Strategist and Consultant, bringing together communication design, service design and systems thinking to understand, define and visualise&nbsp;brands.</p>
+    <p class="small">Currently pursuing a Master of Design Innovation and Technology at RMIT University, my approach extends beyond visual identities to explore how businesses operate, the values they represent, the people they serve and the interconnected systems that shape their&nbsp;experiences.</p>
+    <p class="small">Through my professional experience and education, I have developed the ability to translate business objectives, stakeholder perspectives and customer insights into clear brand positioning, strategic direction and cohesive visual communication. I approach branding by understanding the broader business ecosystem, identifying opportunities and creating meaningful connections between businesses and their&nbsp;audiences.</p>
+    <p class="small">My objective is to help businesses articulate their identities, develop distinctive brand strategies and translate them into consistent visual and experiential touchpoints. I aim to bridge strategic thinking and creative execution, creating brands that are purposeful, recognisable and aligned with their business&nbsp;objectives.</p>
   </div>
 </div></section>
 </main>
-<a class="nextlink wrap" href="index.html"><span class="mono">Back to the start</span><h2>Overview<i>→</i></h2></a>
-<footer><div class="wrap"><span>Malhar Bapte, Master of Design Innovation and Technology, RMIT University</span><span>All work shown is property of Wonderland RV.</span></div></footer><script>
+<a class="nextlink wrap" href="index.html"><span class="mono">Back to the&nbsp;start</span><h2>Overview&#8288;<i>→</i></h2></a>
+<footer><div class="wrap"><span>Malhar Bapte, Master of Design Innovation and Technology, RMIT&nbsp;University</span><span>All work shown is property of Wonderland&nbsp;RV.</span></div></footer><script>
 (function(){
-  [].slice.call(document.querySelectorAll('.cmp')).forEach(function(c){
-    var r=c.querySelector('input');
-    var set=function(v){c.style.setProperty('--pos',v+'%')};
-    r.addEventListener('input',function(){set(r.value)});
-    var drag=false;
-    var move=function(e){var b=c.getBoundingClientRect();var v=Math.max(0,Math.min(100,(e.clientX-b.left)/b.width*100));r.value=v;set(v)};
-    c.addEventListener('pointerdown',function(e){drag=true;try{c.setPointerCapture(e.pointerId)}catch(_){}move(e)});
-    c.addEventListener('pointermove',function(e){if(drag)move(e)});
-    c.addEventListener('pointerup',function(){drag=false});
-    c.addEventListener('pointercancel',function(){drag=false});
-  });
   var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var root=document.documentElement;
   /* page navigation: a pill glides to the current tab, a ghost follows the pointer */
