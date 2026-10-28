@@ -182,13 +182,32 @@ figure img{width:100%;border:1px solid var(--rule)}
 .moves p{margin:0;color:var(--ink-2);font-size:var(--fs-small)}
 @media(max-width:620px){.moves li{grid-template-columns:1fr;gap:6px}}
 
-/* pipeline, journey */
-.pipe{display:flex;flex-wrap:wrap;list-style:none;margin:0;padding:0}
-.pipe li{flex:1 1 150px;min-width:0;padding:14px 16px 16px 0;border-top:2px solid var(--violet);position:relative}
-.pipe li::after{content:"";position:absolute;right:6px;top:-7px;width:12px;height:12px;border-radius:50%;background:var(--sun)}
-.pipe li:last-child::after{display:none}
-.pipe b{display:block;font-family:var(--font-text);font-weight:var(--w-sub);font-size:var(--fs-sub)}
-.pipe span{font-size:var(--fs-small);color:var(--ink-2)}
+/* workflow matrix, journey */
+.wfm{container-type:inline-size}
+.wf{display:grid;grid-template-columns:96px repeat(5,minmax(0,1fr));border-top:1px solid var(--rule)}
+.wf>*{padding:16px 14px 16px 0;border-bottom:1px solid var(--rule)}
+.wf .rl{color:var(--ink-2);padding-right:10px}
+.wf .head{display:flex;flex-direction:column;gap:10px;align-items:flex-start;padding-top:22px}
+.wf .head h3{font-family:var(--font-text);font-weight:var(--w-sub);font-size:var(--fs-sub);line-height:1.2;margin:0}
+.wf .head::after{content:"";display:block;width:100%;height:2px;background:var(--violet);margin-top:2px}
+.wf .num{width:36px;height:36px;border-radius:50%;background:var(--sun);color:var(--on-sun);display:grid;place-items:center;font-family:var(--font-display);font-weight:var(--w-heading);font-size:1rem;line-height:1;--pc:var(--sun)}
+.wf .c p{margin:0;font-size:var(--fs-small);line-height:1.5;color:var(--ink-2);max-width:none}
+.wf .c.do p{color:var(--ink)}
+.wf .chip{display:inline-block;margin:0 6px 6px 0;font-family:var(--font-text);font-weight:var(--w-body);font-size:var(--fs-caption);letter-spacing:.08em;text-transform:uppercase;padding:6px 10px;border:1px solid var(--violet);background:color-mix(in srgb,var(--violet) 22%,transparent)}
+.wf .rule{grid-column:1/-1;padding:18px 0 0;border-bottom:0;display:flex;align-items:center;gap:12px}
+.wf .rule p{margin:0;color:var(--ink-2);font-size:var(--fs-small);max-width:none}
+.wf .rule i{width:12px;height:12px;border-radius:50%;background:var(--sun);flex:none}
+@container (max-width:719px){
+  .wf{display:flex;flex-direction:column;border-top:0}
+  .wf .head,.wf .c{order:calc(var(--s) * 10 + var(--r))}
+  .wf .rule{order:100}
+  .wf .rl,.wf .blank{display:none}
+  .wf .head{border-top:1px solid var(--rule);padding:22px 0 8px;flex-direction:row;align-items:center;gap:14px;border-bottom:0}
+  .wf .head::after{display:none}
+  .wf .c{display:block;border-bottom:0;padding:6px 0 6px 50px}
+  .wf .c::before{content:attr(data-l);display:block;text-transform:uppercase;letter-spacing:.08em;font-size:var(--fs-caption);color:var(--ink-2);margin-bottom:4px}
+  .wf .rule{padding-top:26px}
+}
 .journey{width:100%;height:auto;display:block}
 .journey text{font-family:var(--font-text);font-weight:var(--w-body);font-size:11.5px;letter-spacing:.05em;fill:var(--ink-2)}
 .journey .t{font-family:var(--font-text);font-weight:var(--w-sub);font-size:16px;letter-spacing:-.01em;fill:var(--ink)}
@@ -378,8 +397,8 @@ body>*:not(.nav):not(.dock):not(.thirds):not(script){animation:pgin .5s cubic-be
 
 @media(prefers-reduced-motion:no-preference){
   .dock .it[data-s="cur"] .node{--amp:1.1;--rg:11px}
-  .dock .it[data-s="cur"] .node,.nav .me i,.scale .dot,.pipe li::after,.shows li::before,.timeline li::before,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
-  .shows li:nth-child(even)::before,.timeline li:nth-child(even)::before,.pipe li:nth-child(even)::after,.parts li:nth-child(even) a::after{animation-delay:-.9s}
+  .dock .it[data-s="cur"] .node,.wf .num,.nav .me i,.scale .dot,.shows li::before,.timeline li::before,.links a::before,.nextlink::after,.parts a::after,.thumbs .lab i{animation:pulse 1.8s ease-out infinite}
+  .shows li:nth-child(even)::before,.timeline li:nth-child(even)::before,.wf .head:nth-child(even) .num,.parts li:nth-child(even) a::after{animation-delay:-.9s}
   .journey .nd,.street .pd{animation:pulsesvg 1.8s ease-out infinite}
 }
 @media(prefers-reduced-motion:reduce){
